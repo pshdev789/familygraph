@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = 'com.wundermancommerce.interviewtests.graph.Main'
+
+repositories { 
+    mavenCentral() 
+}
+
+dependencies {
+ 	implementation "joda-time:joda-time:2.2"
+    testImplementation "junit:junit:4.12"
+    compile( "org.apache.commons:commons-lang3:3.3.2")
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+	annotationProcessor 'org.projectlombok:lombok:1.18.20'
+	
+	testCompileOnly 'org.projectlombok:lombok:1.18.20'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
+    
+}
+
+tasks.test {
+    testLogging {
+        events("PASSED", "FAILED", "SKIPPED", "STANDARD_ERROR", "STANDARD_OUT")
+    }
+}
